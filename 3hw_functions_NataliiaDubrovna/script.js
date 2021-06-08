@@ -208,7 +208,7 @@ pow3.innerHTML = `pow(2,-3) =>  ${pow(2,-3)}`;
 
 const Result2 = document.getElementById('Result2');
 function getResult2(){
-    let number = Math.round(Number(document.getElementById("powNumber").value));
+    let number = Number(document.getElementById("powNumber").value);
     let power = Math.round(Number(document.getElementById("powPower").value));
     Result2.innerHTML = pow(number,power);
 }
