@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <section class="section task1">
+        <h1>Task 1</h1>
+        <p>Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.</p>
+        <div class="example">
+            <ul>
+                <li id = "getMaxDigit1"></li>
+                <li id = "getMaxDigit2"></li>
+                <li id = "getMaxDigit3"></li>
+                <li>
+                    <label for="getMaxDigit">Enter your number</label>
+                    <input type="number" id="getMaxDigit" name="getMaxDigit">    
+                    <button type="button" onclick="getResult1()">Get Result</button>
+                    <p>Result: <span class="result" id='Result1'></span></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section task2">
+        <h1>Task 2</h1>
+        <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл.</p>
+        <div class="example">
+            <ul>
+                <li id = "pow1"></li>
+                <li id = "pow2"></li>
+                <li id = "pow3"></li>
+                <li>
+                    <label for="powNumber">Enter your number</label>
+                    <input type="number" id="powNumber" name="powNumber">    
+                    <label for="powPower">Enter your power</label>
+                    <input type="number" id="powPower" name="powPower" pattern="\d*">    
+                    <button type="button" onclick="getResult2()">Get Result</button>
+                    <p>Result: <span class="result" id='Result2'></span></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section task2">
+        <h1>Task 3</h1>
+        <p>Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі)</p>
+        <div class="example">
+            <ul>
+                <li id = "toUpperCase1"></li>
+                <li id = "toUpperCase2"></li>
+                <li id = "toUpperCase3"></li>
+                <li>
+                    <label for="toUpperCase">Enter your number</label>
+                    <input type="text" id="toUpperCase" name="toUpperCase">    
+                    <button type="button" onclick="getResult3()">Get Result</button>
+                    <p>Result: <span class="result" id='Result3'></span></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <h1>Task 4</h1>
+    <p>Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805</p>
+    <div class="example">
+        <ul>
+            <li id = "tax1"></li>
+            <li id = "tax2"></li>
+            <li id = "tax3"></li>
+            <li>
+                <label for="tax">Enter your number</label>
+                <input type="number" id="taxWage" name="taxWage">    
+                <input type="text" id="taxRate" name="taxRate">    
+                <button type="button" onclick="getResult4()">Get Result</button>
+                <p>Result: <span class="result" id='Result4'></span></p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+
+<h1>Task 5</h1>
+<p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
+<div class="example">
+    <ul>
+        <li id = "getRandomNumber1"></li>
+        <li id = "getRandomNumber2"></li>
+        <li>
+            <label for="getRandomNumber">Enter your number</label>
+            <input type="number" id="inputgetRandomNumber1" name="getRandomNumber">
+            <input type="number" id="inputgetRandomNumber2" name="getRandomNumber">    
+            <button type="button" onclick="getResult5()">Get Result</button>
+            <p>Result: <span class="result" id='Result5'></span></p>
+        </li>
+    </ul>
+</div>
+</section>
+
+<h1>Task 6</h1>
+<p>Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4</p>
+<div class="example">
+    <ul>
+        <li id = "countLetter1"></li>
+        <li id = "countLetter2"></li>
+        <li id = "countLetter3"></li>
+        <li>
+            <label for="countLetter">Enter your number</label>
+            <input type="text" id="letterCountLetter" name="letterCountLetter">    
+            <input type="text" id="stringCountLetter" name="stringCountLetter">    
+            <button type="button" onclick="getResult6()">Get Result</button>
+            <p>Result: <span class="result" id='Result6'></span></p>
+        </li>
+    </ul>
+</div>
+</section>
+
+
+</body>
+</html>
