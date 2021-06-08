@@ -9,27 +9,9 @@ function getMaxDigitSecond(number){
     return Math.max(...arr);
 }
 
-
-const getMaxDigit1 = document.getElementById('getMaxDigit1');
-const getMaxDigit2 = document.getElementById('getMaxDigit2');
-const getMaxDigit3 = document.getElementById('getMaxDigit3');
-
-getMaxDigit1.innerHTML = `getMaxDigit(123578920352)  =>  ${getMaxDigitFirst(123578920352)}`;
-getMaxDigit2.innerHTML = `getMaxDigit(-1235782,0352)  =>  ${getMaxDigitFirst(-1235782,0352)}`;
-getMaxDigit3.innerHTML = `getMaxDigit(123572,0352)  =>  ${getMaxDigitFirst(123572,0352)}`;
-
-
-const Result1 = document.getElementById('Result1');
-function getResult1(){
-    let input = Number(document.getElementById("getMaxDigit").value);
-    Result1.innerHTML = getMaxDigitFirst(input);
-}
-
 // console.log(getMaxDigit(123578920352));
 // console.log(getMaxDigit(-1235782,0352));
 // console.log(getMaxDigit(123572,0352));
-
-
 
 
 
@@ -52,22 +34,6 @@ function pow(a , n) {
     }
 }
 
-const pow1 = document.getElementById('pow1');
-const pow2 = document.getElementById('pow2');
-const pow3 = document.getElementById('pow3');
-
-pow1.innerHTML = `pow(2,0) =>  ${pow(2,0)}`;
-pow2.innerHTML = `pow(2,6) =>  ${pow(2,6)}`;
-pow3.innerHTML = `pow(2,-3) =>  ${pow(2,-3)}`;
-
-
-const Result2 = document.getElementById('Result2');
-function getResult2(){
-    let number = Number(document.getElementById("powNumber").value);
-    let power = Number(document.getElementById("powPower").value);
-    Result2.innerHTML = pow(number,power);
-}
-
 // console.log(pow(2,0))
 // console.log(pow(2,1))
 // console.log(pow(2,5))
@@ -77,22 +43,6 @@ function getResult2(){
 //3. Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 function toUpperCase(str){
     return str[0].toUpperCase() + str.slice(0, str.length).toLowerCase();
-}
-
-
-const toUpperCase1 = document.getElementById('toUpperCase1');
-const toUpperCase2 = document.getElementById('toUpperCase2');
-const toUpperCase3 = document.getElementById('toUpperCase3');
-
-toUpperCase1.innerHTML = `toUpperCase('ssssssINEJHjkj') =>  ${toUpperCase('ssssssINEJHjkj')}`;
-toUpperCase2.innerHTML = `toUpperCase('ALLLETTERSAREUPPER') =>  ${toUpperCase('ALLLETTERSAREUPPER')}`;
-toUpperCase3.innerHTML = `toUpperCase('allletersarelower') =>  ${toUpperCase('allletersarelower')}`;
-
-
-const Result3 = document.getElementById('Result3');
-function getResult3(){
-    let str = String(document.getElementById("toUpperCase").value);
-    Result3.innerHTML = toUpperCase(str);
 }
 
 // console.log(toUpperCase('ssssssINEJHjkj'));
@@ -107,47 +57,15 @@ function tax(salary , taxRate){
     return salary - salary * (parseFloat(taxRate)/100);
 }
 
-const tax1 = document.getElementById('tax1');
-const tax2 = document.getElementById('tax2');
-const tax3 = document.getElementById('tax3');
-
-tax1.innerHTML = `tax(1000, 19.5) =>  ${tax(1000, 19.5)}`;
-tax2.innerHTML = `tax(1000, '19.5%') =>  ${tax(1000, '19.5%')}`;
-tax3.innerHTML = `tax(1000, '19%') =>  ${tax(1000, '19%')}`;
-
-
-const Result4 = document.getElementById('Result4');
-function getResult4(){
-    let taxWage = Number(document.getElementById("taxWage").value);
-    let taxRate = String(document.getElementById("taxRate").value);
-    Result4.innerHTML = tax(taxWage,taxRate);
-}
-
 // console.log(tax(1000, 19.5));
 // console.log(tax(1000, '19.5%'));
 // console.log(tax(1000, '19%'));
 
 
 
-
-
-
 //5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 function getRandomNumber(min , max) {
         return Math.floor(min + Math.random() * (max + 1 - min));
-}
-
-const getRandomNumber1 = document.getElementById('getRandomNumber1');
-const getRandomNumber2 = document.getElementById('getRandomNumber2');
-
-getRandomNumber1.innerHTML = `getRandomNumber(5,8) =>  ${getRandomNumber(5,8)}`;
-getRandomNumber2.innerHTML = `getRandomNumber(5,1) =>  ${getRandomNumber(5,1)}`;
-
-const Result5 = document.getElementById('Result5');
-function getResult5(){
-    let inputgetRandomNumber1 = Number(document.getElementById("inputgetRandomNumber1").value);
-    let inputgetRandomNumber2 = Number(document.getElementById("inputgetRandomNumber2").value);
-    Result5.innerHTML = getRandomNumber(inputgetRandomNumber1,inputgetRandomNumber2);
 }
 
 // console.log(getRandomNumber(5,8));
@@ -162,30 +80,9 @@ function countLetter( letter , str) {
     return count;
 }
 
-const countLetter1 = document.getElementById('countLetter1');
-const countLetter2 = document.getElementById('countLetter2');
-const countLetter3 = document.getElementById('countLetter3');
-
-countLetter1.innerHTML = `countLetter("а", "Асталавіста") =>  ${countLetter("а", "Асталавіста")}`;
-countLetter2.innerHTML = `countLetter("o", "Lowers to LOVERS") =>  ${countLetter("o", "Lowers to LOVERS")}`;
-countLetter3.innerHTML = `countLetter("а", "Love") =>  ${countLetter("а", "Love")}`;
-
-
-const Result6 = document.getElementById('Result6');
-function getResult6(){
-    let letterCountLetter = String(document.getElementById("letterCountLetter").value);
-    let stringCountLetter = String(document.getElementById("stringCountLetter").value);
-    Result6.innerHTML = countLetter(letterCountLetter,stringCountLetter);
-}
-
-
-
 // console.log(countLetter("а", "Асталавіста"))
 // console.log(countLetter("o", "Lowers to LOVERS"))
 // console.log(countLetter("а", "Love"))
-
-
-
 
 
 /*7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
@@ -212,10 +109,6 @@ function getResult6(){
 //  console.log(convertCurrency('1000EUR', 29));
 
 
-
-
-
-
 /*8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
  Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124*/
 function getRandomPassword( leng = 8){
@@ -225,21 +118,18 @@ function getRandomPassword( leng = 8){
     }
     return +res.join('');
 }
+
 // console.log(getRandomPassword(4))
 // console.log(getRandomPassword())
-
-
-
 
 
 /*9. Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"*/
 function  deleteLetters(letter , str) {
     return str.split('').filter((el) => el.toLowerCase() != letter.toLowerCase()).join('')
 }
+
 // console.log(deleteLetters('a', "blablabla"));
 // console.log(deleteLetters('a', "AAAhaaai"));
-
-
 
 
 /*10.Створіть функцію, яка перевіряє, чи є слово паліндромом. 
@@ -262,9 +152,12 @@ function isPalyndrom(str){
 }
 
 // console.log(isPalyndrom('malo n olam'));
-// console.log( isPalyndrom("кокос"));
+// console.log(isPalyndrom("кокос"));
 // console.log(isPalyndrom("Я несу гусеня"));
 // console.log(isPalyndrom("жаба"));
+
+
+
 
 
 
@@ -289,3 +182,176 @@ function deleteDuplicateLetter(str){
 // console.log(deleteDuplicateLetter('рряддоккк'));
 // console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"))
 
+
+
+const getMaxDigit1 = document.getElementById('getMaxDigit1');
+const getMaxDigit2 = document.getElementById('getMaxDigit2');
+const getMaxDigit3 = document.getElementById('getMaxDigit3');
+
+getMaxDigit1.innerHTML = `getMaxDigit(123578920352)  =>  ${getMaxDigitFirst(123578920352)}`;
+getMaxDigit2.innerHTML = `getMaxDigit(-1235782,0352)  =>  ${getMaxDigitFirst(-1235782,0352)}`;
+getMaxDigit3.innerHTML = `getMaxDigit(123572,0352)  =>  ${getMaxDigitFirst(123572,0352)}`;
+
+
+const Result1 = document.getElementById('Result1');
+function getResult1(){
+    let input = Number(document.getElementById("getMaxDigit").value);
+    Result1.innerHTML = getMaxDigitFirst(input);
+}
+
+
+const pow1 = document.getElementById('pow1');
+const pow2 = document.getElementById('pow2');
+const pow3 = document.getElementById('pow3');
+
+pow1.innerHTML = `pow(2,0) =>  ${pow(2,0)}`;
+pow2.innerHTML = `pow(2,6) =>  ${pow(2,6)}`;
+pow3.innerHTML = `pow(2,-3) =>  ${pow(2,-3)}`;
+
+
+const Result2 = document.getElementById('Result2');
+function getResult2(){
+    let number = Number(document.getElementById("powNumber").value);
+    let power = Number(document.getElementById("powPower").value);
+    Result2.innerHTML = pow(number,power);
+}
+
+
+const toUpperCase1 = document.getElementById('toUpperCase1');
+const toUpperCase2 = document.getElementById('toUpperCase2');
+const toUpperCase3 = document.getElementById('toUpperCase3');
+
+toUpperCase1.innerHTML = `toUpperCase('ssssssINEJHjkj') =>  ${toUpperCase('ssssssINEJHjkj')}`;
+toUpperCase2.innerHTML = `toUpperCase('ALLLETTERSAREUPPER') =>  ${toUpperCase('ALLLETTERSAREUPPER')}`;
+toUpperCase3.innerHTML = `toUpperCase('allletersarelower') =>  ${toUpperCase('allletersarelower')}`;
+
+
+const Result3 = document.getElementById('Result3');
+function getResult3(){
+    let str = String(document.getElementById("toUpperCase").value);
+    Result3.innerHTML = toUpperCase(str);
+}
+
+const tax1 = document.getElementById('tax1');
+const tax2 = document.getElementById('tax2');
+const tax3 = document.getElementById('tax3');
+
+tax1.innerHTML = `tax(1000, 19.5) =>  ${tax(1000, 19.5)}`;
+tax2.innerHTML = `tax(1000, '19.5%') =>  ${tax(1000, '19.5%')}`;
+tax3.innerHTML = `tax(1000, '19%') =>  ${tax(1000, '19%')}`;
+
+
+const Result4 = document.getElementById('Result4');
+function getResult4(){
+    let taxWage = Number(document.getElementById("taxWage").value);
+    let taxRate = String(document.getElementById("taxRate").value);
+    Result4.innerHTML = tax(taxWage,taxRate);
+}
+
+
+const getRandomNumber1 = document.getElementById('getRandomNumber1');
+const getRandomNumber2 = document.getElementById('getRandomNumber2');
+
+getRandomNumber1.innerHTML = `getRandomNumber(5,8) =>  ${getRandomNumber(5,8)}`;
+getRandomNumber2.innerHTML = `getRandomNumber(5,1) =>  ${getRandomNumber(5,1)}`;
+
+const Result5 = document.getElementById('Result5');
+function getResult5(){
+    let inputgetRandomNumber1 = Number(document.getElementById("inputgetRandomNumber1").value);
+    let inputgetRandomNumber2 = Number(document.getElementById("inputgetRandomNumber2").value);
+    Result5.innerHTML = getRandomNumber(inputgetRandomNumber1,inputgetRandomNumber2);
+}
+
+
+const countLetter1 = document.getElementById('countLetter1');
+const countLetter2 = document.getElementById('countLetter2');
+const countLetter3 = document.getElementById('countLetter3');
+
+countLetter1.innerHTML = `countLetter("а", "Асталавіста") =>  ${countLetter("а", "Асталавіста")}`;
+countLetter2.innerHTML = `countLetter("o", "Lowers to LOVERS") =>  ${countLetter("o", "Lowers to LOVERS")}`;
+countLetter3.innerHTML = `countLetter("а", "Love") =>  ${countLetter("а", "Love")}`;
+
+
+const Result6 = document.getElementById('Result6');
+function getResult6(){
+    let letterCountLetter = String(document.getElementById("letterCountLetter").value);
+    let stringCountLetter = String(document.getElementById("stringCountLetter").value);
+    Result6.innerHTML = countLetter(letterCountLetter,stringCountLetter);
+}
+
+
+const convertCurrency1 = document.getElementById('convertCurrency1');
+const convertCurrency2 = document.getElementById('convertCurrency2');
+const convertCurrency3 = document.getElementById('convertCurrency3');
+
+convertCurrency1.innerHTML = `convertCurrency('100$', 25) =>  ${convertCurrency('100$', 25)}`;
+convertCurrency2.innerHTML = `convertCurrency('2500Uah', 25) =>  ${convertCurrency('2500Uah', 25)}`;
+convertCurrency3.innerHTML = `convertCurrency('1000EUR', 29) =>  ${convertCurrency('1000EUR', 29)}`;
+
+
+const Result7 = document.getElementById('Result7');
+function getResult7(){
+    let moneyConvertCurrency = String(document.getElementById("moneyConvertCurrency").value);
+    let currencyConvertCurrency = Number(document.getElementById("currencyConvertCurrency").value);
+    Result7.innerHTML = convertCurrency(moneyConvertCurrency,currencyConvertCurrency);
+}
+
+
+const getRandomPassword1 = document.getElementById('getRandomPassword1');
+const getRandomPassword2 = document.getElementById('getRandomPassword2');
+
+getRandomPassword1.innerHTML = `getRandomPassword(4) =>  ${getRandomPassword(4)}`;
+getRandomPassword2.innerHTML = `getRandomPassword() =>  ${getRandomPassword()}`;
+
+const Result8 = document.getElementById('Result8');
+function getResult8(){
+    let inputGetRandomPassword = Number(document.getElementById("inputGetRandomPassword").value);
+    (inputGetRandomPassword != 0) ? Result8.innerHTML = getRandomPassword(inputGetRandomPassword) : Result8.innerHTML = getRandomPassword();   
+}
+
+const deleteLetters1 = document.getElementById('deleteLetters1');
+const deleteLetters2 = document.getElementById('deleteLetters2');
+
+deleteLetters1.innerHTML = `deleteLetters('a', "blablabla") =>  ${deleteLetters('a', "blablabla")}`;
+deleteLetters2.innerHTML = `deleteLetters('a', "AAAhaaai") =>  ${deleteLetters('a', "AAAhaaai")}`;
+
+const Result9 = document.getElementById('Result9');
+function getResult9(){
+    let letterDeleteLetters = String(document.getElementById("letterDeleteLetters").value);
+    let wordDeleteLetters = String(document.getElementById("wordDeleteLetters").value);
+    Result9.innerHTML = deleteLetters(letterDeleteLetters,wordDeleteLetters);
+}
+
+
+const isPalyndrom1 = document.getElementById('isPalyndrom1');
+const isPalyndrom2 = document.getElementById('isPalyndrom2');
+const isPalyndrom3 = document.getElementById('isPalyndrom3');
+const isPalyndrom4 = document.getElementById('isPalyndrom4');
+
+isPalyndrom1.innerHTML = `isPalyndrom('malo n olam') =>  ${isPalyndrom('malo n olam')}`;
+isPalyndrom2.innerHTML = `isPalyndrom("кокос") =>  ${isPalyndrom("кокос")}`;
+isPalyndrom3.innerHTML = `isPalyndrom("Я несу гусеня") =>  ${isPalyndrom("Я несу гусеня")}`;
+isPalyndrom4.innerHTML = `isPalyndrom("жаба") =>  ${isPalyndrom("жаба")}`;
+
+const Result10 = document.getElementById('Result10');
+function getResult10(){
+    let wordIsPalyndrom = String(document.getElementById("wordIsPalyndrom").value);
+    Result10.innerHTML = isPalyndrom(wordIsPalyndrom);
+}
+
+
+
+const deleteDuplicateLetter1 = document.getElementById('deleteDuplicateLetter1');
+const deleteDuplicateLetter2 = document.getElementById('deleteDuplicateLetter2');
+const deleteDuplicateLetter3 = document.getElementById('deleteDuplicateLetter3');
+
+deleteDuplicateLetter1.innerHTML = `deleteDuplicateLetter('рядок який повтор') =>  ${deleteDuplicateLetter('рядок який повтор')}`;
+deleteDuplicateLetter2.innerHTML = `deleteDuplicateLetter('рряддоккк') =>  ${deleteDuplicateLetter('рряддоккк')}`;
+deleteDuplicateLetter3.innerHTML = ` deleteDuplicateLetter("Бісквіт був дуже ніжним") =>  ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}`;
+
+
+const Result11 = document.getElementById('Result11');
+function getResult11(){
+    let stringDeleteDuplicateLetter = String(document.getElementById("stringDeleteDuplicateLetter").value);
+    Result11.innerHTML = deleteDuplicateLetter(stringDeleteDuplicateLetter);
+}
