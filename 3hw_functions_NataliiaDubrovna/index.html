@@ -31,7 +31,8 @@
     
         <section class="section task2">
             <h1>Task 2</h1>
-            <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл.</p>
+            <p>Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл.</br>
+                Дробові значення будуть заокруглені згідно математичних правил.</p>
             <div class="example">
                 <ul>
                     <li id = "pow1"></li>
@@ -86,7 +87,8 @@
     
         <section class="section task5">
             <h1>Task 5</h1>
-            <p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5</p>
+            <p>Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5.</br>
+                Дробові значення будуть заокруглені згідно математичних правил.</p>
             <div class="example">
                 <ul>
                     <li id = "getRandomNumber1"></li>
@@ -146,14 +148,15 @@
         <section class="section task8">
             <h1>Task 8</h1>
             <p>Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.</br>
-            Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124</p>
+            Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124 </br>
+            Дробові значення будуть заокруглені згідно математичних правил.</p>
             <div class="example">
                 <ul>
                     <li id = "getRandomPassword1"></li>
                     <li id = "getRandomPassword2"></li>
                     <li>
                         <label for="getRandomPassword">Enter your number</label>
-                        <input type="text" id="inputGetRandomPassword" name="inputGetRandomPassword"><br>    
+                        <input  type="text" pattern="\d+"  id="inputGetRandomPassword" name="inputGetRandomPassword"><br>    
                         <p><button type="button" onclick="getResult8()">Get Result</button> Result: <span class="result" id='Result8'></span></p>
                     </li>
                 </ul>

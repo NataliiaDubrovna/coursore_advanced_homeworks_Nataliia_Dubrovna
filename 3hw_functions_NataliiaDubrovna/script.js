@@ -8,7 +8,6 @@ function getMaxDigitSecond(number){
     let arr = ('' + number).split('').map((el) => +el ).filter((el) =>  !Object.is(NaN,el));
     return Math.max(...arr);
 }
-
 // console.log(getMaxDigit(123578920352));
 // console.log(getMaxDigit(-1235782,0352));
 // console.log(getMaxDigit(123572,0352));
@@ -33,21 +32,21 @@ function pow(a , n) {
         return `${a}^(${n}) = 1/${pow} = ${1/pow}`;
     }
 }
-
 // console.log(pow(2,0))
 // console.log(pow(2,1))
 // console.log(pow(2,5))
 // console.log(pow(2,-3))
 
 
+
 //3. Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 function toUpperCase(str){
     return str[0].toUpperCase() + str.slice(0, str.length).toLowerCase();
 }
-
 // console.log(toUpperCase('ssssssINEJHjkj'));
 // console.log(toUpperCase('ALLLETTERSAREUPPER'));
 // console.log(toUpperCase('allletersarelower'));
+
 
 
 
@@ -56,10 +55,10 @@ function toUpperCase(str){
 function tax(salary , taxRate){
     return salary - salary * (parseFloat(taxRate)/100);
 }
-
 // console.log(tax(1000, 19.5));
 // console.log(tax(1000, '19.5%'));
 // console.log(tax(1000, '19%'));
+
 
 
 
@@ -67,9 +66,9 @@ function tax(salary , taxRate){
 function getRandomNumber(min , max) {
         return Math.floor(min + Math.random() * (max + 1 - min));
 }
-
 // console.log(getRandomNumber(5,8));
 // console.log(getRandomNumber(5,1));
+
 
 
 
@@ -79,10 +78,11 @@ function countLetter( letter , str) {
     str.split('').forEach((el) => el.toLowerCase() == letter.toLowerCase() ? count++ : count);
     return count;
 }
-
 // console.log(countLetter("а", "Асталавіста"))
 // console.log(countLetter("o", "Lowers to LOVERS"))
 // console.log(countLetter("а", "Love"))
+
+
 
 
 /*7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
@@ -103,10 +103,11 @@ function countLetter( letter , str) {
     }
     return   ` ${money} = ${res}${exchangCurr}`;
 }
-
 //  console.log(convertCurrency('100$', 25));
 //  console.log(convertCurrency('2500Uah', 25));
 //  console.log(convertCurrency('1000EUR', 29));
+
+
 
 
 /*8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
@@ -118,18 +119,19 @@ function getRandomPassword( leng = 8){
     }
     return +res.join('');
 }
-
 // console.log(getRandomPassword(4))
 // console.log(getRandomPassword())
+
 
 
 /*9. Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"*/
 function  deleteLetters(letter , str) {
     return str.split('').filter((el) => el.toLowerCase() != letter.toLowerCase()).join('')
 }
-
 // console.log(deleteLetters('a', "blablabla"));
 // console.log(deleteLetters('a', "AAAhaaai"));
+
+
 
 
 /*10.Створіть функцію, яка перевіряє, чи є слово паліндромом. 
@@ -150,16 +152,10 @@ function isPalyndrom(str){
         return false;
     }
 }
-
 // console.log(isPalyndrom('malo n olam'));
 // console.log(isPalyndrom("кокос"));
 // console.log(isPalyndrom("Я несу гусеня"));
 // console.log(isPalyndrom("жаба"));
-
-
-
-
-
 
 
 
@@ -177,13 +173,14 @@ function deleteDuplicateLetter(str){
         return unique.join('');
     }
 }
-
 // console.log(deleteDuplicateLetter('рядок який повтор'));
 // console.log(deleteDuplicateLetter('рряддоккк'));
 // console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"))
 
 
+/*================   HTML  ===============================*/
 
+//1
 const getMaxDigit1 = document.getElementById('getMaxDigit1');
 const getMaxDigit2 = document.getElementById('getMaxDigit2');
 const getMaxDigit3 = document.getElementById('getMaxDigit3');
@@ -199,7 +196,7 @@ function getResult1(){
     Result1.innerHTML = getMaxDigitFirst(input);
 }
 
-
+//2
 const pow1 = document.getElementById('pow1');
 const pow2 = document.getElementById('pow2');
 const pow3 = document.getElementById('pow3');
@@ -211,12 +208,12 @@ pow3.innerHTML = `pow(2,-3) =>  ${pow(2,-3)}`;
 
 const Result2 = document.getElementById('Result2');
 function getResult2(){
-    let number = Number(document.getElementById("powNumber").value);
-    let power = Number(document.getElementById("powPower").value);
+    let number = Math.round(Number(document.getElementById("powNumber").value));
+    let power = Math.round(Number(document.getElementById("powPower").value));
     Result2.innerHTML = pow(number,power);
 }
 
-
+//3
 const toUpperCase1 = document.getElementById('toUpperCase1');
 const toUpperCase2 = document.getElementById('toUpperCase2');
 const toUpperCase3 = document.getElementById('toUpperCase3');
@@ -232,6 +229,7 @@ function getResult3(){
     Result3.innerHTML = toUpperCase(str);
 }
 
+//4
 const tax1 = document.getElementById('tax1');
 const tax2 = document.getElementById('tax2');
 const tax3 = document.getElementById('tax3');
@@ -248,7 +246,7 @@ function getResult4(){
     Result4.innerHTML = tax(taxWage,taxRate);
 }
 
-
+//5
 const getRandomNumber1 = document.getElementById('getRandomNumber1');
 const getRandomNumber2 = document.getElementById('getRandomNumber2');
 
@@ -257,12 +255,12 @@ getRandomNumber2.innerHTML = `getRandomNumber(5,1) =>  ${getRandomNumber(5,1)}`;
 
 const Result5 = document.getElementById('Result5');
 function getResult5(){
-    let inputgetRandomNumber1 = Number(document.getElementById("inputgetRandomNumber1").value);
-    let inputgetRandomNumber2 = Number(document.getElementById("inputgetRandomNumber2").value);
+    let inputgetRandomNumber1 = Math.round(Number(document.getElementById("inputgetRandomNumber1").value));
+    let inputgetRandomNumber2 = Math.round(Number(document.getElementById("inputgetRandomNumber2").value));
     Result5.innerHTML = getRandomNumber(inputgetRandomNumber1,inputgetRandomNumber2);
 }
 
-
+//6
 const countLetter1 = document.getElementById('countLetter1');
 const countLetter2 = document.getElementById('countLetter2');
 const countLetter3 = document.getElementById('countLetter3');
@@ -279,7 +277,7 @@ function getResult6(){
     Result6.innerHTML = countLetter(letterCountLetter,stringCountLetter);
 }
 
-
+//7
 const convertCurrency1 = document.getElementById('convertCurrency1');
 const convertCurrency2 = document.getElementById('convertCurrency2');
 const convertCurrency3 = document.getElementById('convertCurrency3');
@@ -296,7 +294,7 @@ function getResult7(){
     Result7.innerHTML = convertCurrency(moneyConvertCurrency,currencyConvertCurrency);
 }
 
-
+//8
 const getRandomPassword1 = document.getElementById('getRandomPassword1');
 const getRandomPassword2 = document.getElementById('getRandomPassword2');
 
@@ -305,10 +303,13 @@ getRandomPassword2.innerHTML = `getRandomPassword() =>  ${getRandomPassword()}`;
 
 const Result8 = document.getElementById('Result8');
 function getResult8(){
-    let inputGetRandomPassword = Number(document.getElementById("inputGetRandomPassword").value);
+    let inputGetRandomPassword = Math.round(Number(document.getElementById("inputGetRandomPassword").value));
+
+
     (inputGetRandomPassword != 0) ? Result8.innerHTML = getRandomPassword(inputGetRandomPassword) : Result8.innerHTML = getRandomPassword();   
 }
 
+//9
 const deleteLetters1 = document.getElementById('deleteLetters1');
 const deleteLetters2 = document.getElementById('deleteLetters2');
 
@@ -322,7 +323,7 @@ function getResult9(){
     Result9.innerHTML = deleteLetters(letterDeleteLetters,wordDeleteLetters);
 }
 
-
+//10
 const isPalyndrom1 = document.getElementById('isPalyndrom1');
 const isPalyndrom2 = document.getElementById('isPalyndrom2');
 const isPalyndrom3 = document.getElementById('isPalyndrom3');
@@ -339,8 +340,7 @@ function getResult10(){
     Result10.innerHTML = isPalyndrom(wordIsPalyndrom);
 }
 
-
-
+//11
 const deleteDuplicateLetter1 = document.getElementById('deleteDuplicateLetter1');
 const deleteDuplicateLetter2 = document.getElementById('deleteDuplicateLetter2');
 const deleteDuplicateLetter3 = document.getElementById('deleteDuplicateLetter3');
