@@ -25,6 +25,9 @@ function getPairs(students) {
 
 const pairs = getPairs(students);
 console.log(pairs);
+const func1 = document.getElementById('func1');
+func1.innerHTML = JSON.stringify(pairs);
+
 
 // Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 function themesForPairs (pairs, themes){
@@ -38,7 +41,8 @@ function themesForPairs (pairs, themes){
 
 const pairsWithThemes = themesForPairs(pairs, themes);
 console.log(pairsWithThemes);
-
+const func2 = document.getElementById('func2');
+func2.innerHTML = JSON.stringify(pairsWithThemes);
 
 // Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 function marksForStudents(students, marks){
@@ -52,20 +56,25 @@ function marksForStudents(students, marks){
 
 const studentsWithMarks = marksForStudents(students, marks);
 console.log(studentsWithMarks);
-
+const func3 = document.getElementById('func3');
+func3.innerHTML = JSON.stringify(studentsWithMarks);
 
 
 // Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив): [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
-function getRandomNumber(min , max) {
+function getRandomNumber(min , max){
     return Math.floor(min + Math.random() * (max + 1 - min));
 }
-function markForPairs(pairs){
-    let res = [...pairs];
-    for(let pair of res){
+
+function marksForPairs(paires){
+    const pairClone = [...paires];
+    for(let pair of pairClone){
         pair.push(getRandomNumber(1,5));
     }
-    return res;
+    return pairClone;
 }
 
-const pairsWithMarks = markForPairs(pairsWithThemes);
+const pairsWithMarks = marksForPairs(pairsWithThemes);
 console.log(pairsWithMarks);
+const func4 = document.getElementById('func4');
+func4.innerHTML = JSON.stringify(pairsWithMarks);
+
