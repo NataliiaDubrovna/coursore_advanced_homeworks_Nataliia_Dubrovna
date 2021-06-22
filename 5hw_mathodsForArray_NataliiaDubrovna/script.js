@@ -17,6 +17,11 @@ function getModa(...numbers){
     let pairs = intNumbers.map(function(el, i, arr){
         return [el , arr.filter((elem) =>  el === elem).length]// pairs [elem,frequency]
     });
+
+    if(pairs.every((elem)=> elem[1] === 1)){
+        return 'There is no moda (all values are unique)'
+    }
+
     let modaPair = pairs.sort((a,b) => a[1] - b[1]).pop();// moust frequency pairs
     let mostFrequency = modaPair[1]; //get exact frequency
     let modaRes =  Array.from(new Set(pairs.filter((el) => el[1] === mostFrequency).map((el) => el[0])));
@@ -26,6 +31,8 @@ console.log('/----------------- 2 -----------------/')
 console.log("getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ===>",getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 console.log("getModa(6,6,7,7,7.8,7.8,8,8) ==>",getModa(6,6,7,7,7.8,7.8,8,8));
 console.log('getModa(6,6,7,7,8,8) ==>',getModa(6,6,7,7,8,8));
+console.log('getModa(1,2,3) ==>',getModa(1,2,3));
+console.log('getModa(1,2) ==>',getModa(1,2));
 
 
 
