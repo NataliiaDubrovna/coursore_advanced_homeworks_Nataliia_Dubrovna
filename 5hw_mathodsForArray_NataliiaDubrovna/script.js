@@ -32,7 +32,7 @@ console.log("getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) ===>"
 console.log("getModa(6,6,7,7,7.8,7.8,8,8) ==>",getModa(6,6,7,7,7.8,7.8,8,8));
 console.log('getModa(6,6,7,7,8,8) ==>',getModa(6,6,7,7,8,8));
 console.log('getModa(1,2,3) ==>',getModa(1,2,3));
-console.log('getModa(1,2) ==>',getModa(1,2));
+console.log('getModa(2,2) ==>',getModa(2,2));
 
 
 
