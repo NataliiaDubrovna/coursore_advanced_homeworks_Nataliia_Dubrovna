@@ -1,18 +1,10 @@
 //1. Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
-function getMaxDigitFirst(number){
-    console.log(('' + number).split('').sort((a,b) => a-b));
-    return ('' + number).split('').sort((a,b) => a-b).pop() 
-}
+const getMaxDigitFirst = number => +(String(number)).split('').sort((a,b) => a-b).pop()
 
 function getMaxDigitSecond(number){
     let arr = ('' + number).split('').map((el) => +el ).filter((el) =>  !Object.is(NaN,el));
     return Math.max(...arr);
 }
-// console.log(getMaxDigit(123578920352));
-// console.log(getMaxDigit(-1235782,0352));
-// console.log(getMaxDigit(123572,0352));
-
-
 
 //2.Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 function pow(a , n) {
@@ -21,56 +13,26 @@ function pow(a , n) {
         for(let i = 1; i <= n ; i++){
             pow *= a
         }
-        // console.log(Math.pow(a , n));
         return `${a}^${n} = ${pow}`;
     }
     else if (n < 0){
         for(let i = 1; i <= -n ; i++){
             pow *= a
         }
-        // console.log(Math.pow(a , n));
         return `${a}^(${n}) = 1/${pow} = ${1/pow}`;
     }
 }
-// console.log(pow(2,0))
-// console.log(pow(2,1))
-// console.log(pow(2,5))
-// console.log(pow(2,-3))
-
 
 
 //3. Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
-function toUpperCase(str){
-    return str[0].toUpperCase() + str.slice(0, str.length).toLowerCase();
-}
-// console.log(toUpperCase('ssssssINEJHjkj'));
-// console.log(toUpperCase('ALLLETTERSAREUPPER'));
-// console.log(toUpperCase('allletersarelower'));
-
-
-
+const toUpperCase = (str) => str[0].toUpperCase() + str.slice(0, str.length).toLowerCase();
 
 
 //4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
-function tax(salary , taxRate){
-    return salary - salary * (parseFloat(taxRate)/100);
-}
-// console.log(tax(1000, 19.5));
-// console.log(tax(1000, '19.5%'));
-// console.log(tax(1000, '19%'));
-
-
-
+const tax = (salary, taxRate) => salary - salary * (parseFloat(taxRate) / 100);
 
 //5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
-function getRandomNumber(min , max) {
-        return Math.floor(min + Math.random() * (max + 1 - min));
-}
-// console.log(getRandomNumber(5,8));
-// console.log(getRandomNumber(5,1));
-
-
-
+const getRandomNumber = (min , max) => Math.floor(min + Math.random() * (max + 1 - min));
 
 //6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
 function countLetter( letter , str) {
@@ -78,18 +40,14 @@ function countLetter( letter , str) {
     str.split('').forEach((el) => el.toLowerCase() == letter.toLowerCase() ? count++ : count);
     return count;
 }
-// console.log(countLetter("а", "Асталавіста"))
-// console.log(countLetter("o", "Lowers to LOVERS"))
-// console.log(countLetter("а", "Love"))
-
 
 
 
 /*7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
  Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення. */
  function convertCurrency(money , exchahgeRayte){
-    let n = (parseInt(money) + '').split('').length 
-    let currency = money.split('').splice(n).join('');
+    const n = (parseInt(money) + '').split('').length 
+    const currency = money.split('').splice(n).join('');
     let res;
     let exchangCurr;
     if  (currency.toLowerCase() === "uah"){
@@ -103,42 +61,29 @@ function countLetter( letter , str) {
     }
     return   ` ${money} = ${res}${exchangCurr}`;
 }
-//  console.log(convertCurrency('100$', 25));
-//  console.log(convertCurrency('2500Uah', 25));
-//  console.log(convertCurrency('1000EUR', 29));
-
 
 
 
 /*8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
  Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124*/
 function getRandomPassword( leng = 8){
-    let res = [];
+    const res = [];
     for(let i = 1 ; i <= leng ; i++ ){
         res.push(Math.trunc(Math.random()*10))
     }
     return +res.join('');
 }
-// console.log(getRandomPassword(4))
-// console.log(getRandomPassword())
-
 
 
 /*9. Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"*/
-function  deleteLetters(letter , str) {
-    return str.split('').filter((el) => el.toLowerCase() != letter.toLowerCase()).join('')
-}
-// console.log(deleteLetters('a', "blablabla"));
-// console.log(deleteLetters('a', "AAAhaaai"));
-
-
+const deleteLetters = (letter , str) => str.split('').filter((el) => el.toLowerCase() != letter.toLowerCase()).join('');
 
 
 /*10.Створіть функцію, яка перевіряє, чи є слово паліндромом. 
 Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true */
 function isPalyndrom(str){
-    let arrLetters = str.split('').filter((el) => el !== " ").map((elem) => elem.toLowerCase());
-    let shouldBeTheSame = Math.floor(arrLetters.length / 2) //how much letters chould be identical
+    const arrLetters = str.split('').filter((el) => el !== " ").map((elem) => elem.toLowerCase());
+    const shouldBeTheSame = Math.floor(arrLetters.length / 2) //how much letters chould be identical
     let isTheSame = 0;
     for(let i = 0; i < shouldBeTheSame ; i++){
         if(arrLetters[i] === arrLetters[arrLetters.length - (i + 1)]){
@@ -152,30 +97,22 @@ function isPalyndrom(str){
         return false;
     }
 }
-// console.log(isPalyndrom('malo n olam'));
-// console.log(isPalyndrom("кокос"));
-// console.log(isPalyndrom("Я несу гусеня"));
-// console.log(isPalyndrom("жаба"));
-
 
 
 /*11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу.
 Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим" */
 function deleteDuplicateLetter(str){
-    let arr = str.toLowerCase().split('').filter((el) => el !== " "); //array of latters wathout spaces
+    const arr = str.toLowerCase().split('').filter((el) => el !== " "); //array of latters wathout spaces
     if(arr.every((elem, index, arr) => arr.indexOf(elem) === index)){ // if all letters are unique . just return it  string without changes
         return str;
     } 
     else{
-        let duplicated = arr.filter((elem, index, arr) => (arr.indexOf(elem) !== index));// find here letters which have been duplacated  //if element has the other indexOf result than his current positions, it means that it was founded earlier (bacause indexOf function stop working after the firs match was founded)  
-        let duplicatedUnique  = Array.from(new Set(duplicated));
-        let unique =  arr.filter((el) => !duplicatedUnique.includes(el));
+        const duplicated = arr.filter((elem, index, arr) => (arr.indexOf(elem) !== index));// find here letters which have been duplacated  //if element has the other indexOf result than his current positions, it means that it was founded earlier (bacause indexOf function stop working after the firs match was founded)  
+        const duplicatedUnique  = Array.from(new Set(duplicated));
+        const unique =  arr.filter((el) => !duplicatedUnique.includes(el));
         return unique.join('');
     }
 }
-// console.log(deleteDuplicateLetter('рядок який повтор'));
-// console.log(deleteDuplicateLetter('рряддоккк'));
-// console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"))
 
 
 /*================   HTML  ===============================*/

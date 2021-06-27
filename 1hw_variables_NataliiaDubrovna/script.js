@@ -1,58 +1,59 @@
-const lavazza = 123.965;
-const  nescafe = 90.2345;
-const jacobs = 15.678;
+const lavazzaPrice = 123.965;
+const  nescafePrice = 90.2345;
+const jacobsPrice = 15.678;
 
-document.getElementById('lavazza').innerHTML= `${lavazza}$`;
-document.getElementById('nescafe').innerHTML= `${nescafe}$`;
-document.getElementById('jacobs').innerHTML= `${jacobs}$`;
+document.getElementById('lavazza').innerHTML= `${lavazzaPrice}$`;
+document.getElementById('nescafe').innerHTML= `${nescafePrice}$`;
+document.getElementById('jacobs').innerHTML= `${jacobsPrice}$`;
 
 //Використовуючи вбудований об'єкт Math – виведіть максимальне число
-let maxPrice = Math.max(lavazza , nescafe , jacobs);
+const maxPrice = Math.max(lavazzaPrice , nescafePrice , jacobsPrice);
 console.log(maxPrice);
 
 //Використовуючи вбудований об'єкт Math – виведіть мінімальне число
-let minPrice = Math.min(lavazza , nescafe , jacobs);
+const minPrice = Math.min(lavazzaPrice , nescafePrice , jacobsPrice);
 console.log(minPrice);
 
 //Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму
-let sumPrice = lavazza + nescafe + jacobs;
+const sumPrice = lavazzaPrice + nescafePrice + jacobsPrice;
 console.log(sumPrice);
 
 //Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
-let sumIntPrices = Math.floor(lavazza) + Math.floor(nescafe) + Math.floor(jacobs);//round in less side
+const sumIntPrices = Math.floor(lavazzaPrice) + Math.floor(nescafePrice) + Math.floor(jacobsPrice);//round in less side
 console.log(sumIntPrices);
 
 //Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
-let sumPriceRoundTwoPoint = (Math.round(sumPrice / 100) ) * 100;
+const sumPriceRoundTwoPoint = (Math.round(sumPrice / 100) ) * 100;
 console.log(sumPriceRoundTwoPoint);
 
 //Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
 //even парне
-let isEven = (Math.floor(sumPrice) % 2 === 0) ? true : false;
+const isEven = (Math.floor(sumPrice) % 2 === 0) ? true : false;
 console.log(isEven);
 
 //Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
-let change = 500 - sumPrice;
+const clientMoney = 500;
+const change = clientMoney - sumPrice;
 console.log(change);
 
 //Виведіть середнє значення цін, округлене до другого знаку після коми
-let average = +(sumPrice / 3).toFixed(2);
+const average = +(sumPrice / 3).toFixed(2);
 console.log(average);
 
 //Створіть змінну, в якої збережіть випадкову знижку (використовуйте функцію Math.random).
-let discountRate = +(Math.random()).toFixed(2);// Math.random Є [0 ; 1)
+const discountRate = +(Math.random()).toFixed(2);// Math.random Є [0 ; 1)
 console.log(`${discountRate * 100}%`);
 
 //Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
-let discountSum = +(sumPrice * discountRate).toFixed(2);
+const discountSum = +(sumPrice * discountRate).toFixed(2);
 console.log(discountSum);
-let priceWithDiscount = +((sumPrice - discountSum).toFixed(2));
+const priceWithDiscount = +((sumPrice - discountSum).toFixed(2));
 console.log(priceWithDiscount);
 
 //Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни?
-let costOfGoods = sumPrice / 2;
+const costOfGoods = sumPrice / 2;
 console.log(costOfGoods);
-let netProfit = +(priceWithDiscount - costOfGoods).toFixed(2);
+const netProfit = +(priceWithDiscount - costOfGoods).toFixed(2);
 console.log(netProfit);
 
 let sumUp = ` 
@@ -74,9 +75,3 @@ let sumUp = `
 `;
 document.getElementById('info').innerHTML = sumUp;
 
-// let sumUp = {
-//     'Maximum price of coffee' : maxPrice,
-//     'Minimum price of coffee' : minPrice,
-//     'Sum prices of all products' : sumPrice
-// }
-// console.log(JSON.stringify(sumUp));

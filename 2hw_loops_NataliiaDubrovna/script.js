@@ -5,6 +5,7 @@ function inputN(){
     do{
         N = +prompt("Enter first integer number","Enter here integer number"); // + converts string into a number  
     } while((Object.is(NaN, N) === true) || (N !== parseInt(N))) //  || return first true or last false
+    // Number.isInteger(number) also can be as conditions
 }
 function inputM(){
     do{
@@ -19,8 +20,8 @@ let addEven = confirm('Should the Even numbers be added?');
 
 function sumNubersInDiapasone(n,m){
     let sum = 0; 
-    let maxNumber = Math.max(n,m);
-    let minNumber = Math.min(n,m); 
+    const maxNumber = Math.max(n,m);
+    const minNumber = Math.min(n,m); 
 
     if(addEven){  
         for(let i = minNumber; i <= maxNumber ; i++){

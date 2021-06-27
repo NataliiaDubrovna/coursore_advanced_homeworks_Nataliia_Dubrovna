@@ -5,7 +5,7 @@ const marks = [4, 5, 5, 3, 4, 5];
 // Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 function getPairs(students) {
     const countPair = Math.ceil(students.length / 2);
-    let res = [];
+    const res = [];
     const femaleArray = [];
     const maleArray = [];
         for(let i = 0; i < students.length; i++) {
@@ -32,7 +32,7 @@ func1.innerHTML = JSON.stringify(pairs);
 // Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 function themesForPairs (pairs, themes){
     const themesClone = [...themes]
-    let res = [];
+    const res = [];
     for(let pair of pairs){
         res.push([`${pair[0]} i ${pair[1]}`, themesClone.pop()]);
     }
@@ -47,7 +47,7 @@ func2.innerHTML = JSON.stringify(pairsWithThemes);
 // Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 function marksForStudents(students, marks){
     const marksClone = [...marks];
-    let res = [];
+    const res = [];
     for(let student of students){
         res.push([`${student}`, marksClone.pop()]);
     }
