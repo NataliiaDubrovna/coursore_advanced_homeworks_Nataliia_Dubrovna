@@ -1,0 +1,19 @@
+body{
+    background-color:rgba(143, 188, 143, 0.356);
+}
+.containerWithTimeOut ,
+.container{
+    display: grid;
+    grid-template-columns: repeat(5,50px);
+    grid-template-rows: repeat(5,50px);
+    border-radius: 20px;
+    margin: 50px;
+}
+button{
+    padding: 15px;
+    text-transform: capitalize;
+    font-family: monospace;
+    background-color:rgba(11, 116, 11, 0.479);
+    font-weight: 600;
+    cursor: pointer;
+}
