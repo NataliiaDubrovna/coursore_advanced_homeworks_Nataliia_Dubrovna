@@ -63,5 +63,8 @@ function addClass(elem,className){
     elem.classList.add(className);
 }
 function deactivateAll(arr) {
-    arr.forEach((el)=> el.pause())
+    arr.forEach((el)=> {
+        el.pause();
+        el.currentTime = 0;
+    })
 }
