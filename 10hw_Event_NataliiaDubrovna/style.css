@@ -1,0 +1,22 @@
+body{
+    background-image: url(img/norway8.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.container > div {
+    background: #e0f7fa73;
+    border: rgba(70, 131, 180, 0.548) 2px solid;
+    font-size:xx-large;
+    text-align: center;
+    color: rgb(62 78 93);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    margin: 30px auto;
+}
