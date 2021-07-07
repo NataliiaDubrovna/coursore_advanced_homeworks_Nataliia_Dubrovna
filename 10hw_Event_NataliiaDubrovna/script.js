@@ -11,6 +11,7 @@ const audioElements = getAllElement(namesOfAudio);
 
 const pairKeyAudio = createPairs(keyElements,audioElements);
 pairKeyAudio.forEach( ([key,audio]) =>{ key.addEventListener('click',() => { 
+    deactivateAll(audioElements);
     audio.play();
     removeClass(keyElements,'active');
     addClass(key,'active');
@@ -45,6 +46,7 @@ function checkPressedKey(audioList,keyList){
     return function addEvent(event){
         if (keyPrefix.includes(event.key)) {
             let audioForKeyBeenPressed = audioList.filter((el)=> el.id[0] == event.key);
+            deactivateAll(audioElements);
             audioForKeyBeenPressed[0].play();
             /*------- add/remove class active ---------*/
             let keyElementForKeyBeenPressed = keyList.filter((el)=> el.id[0] == event.key);
@@ -59,4 +61,7 @@ function removeClass(arr,className){
 }
 function addClass(elem,className){
     elem.classList.add(className);
+}
+function deactivateAll(arr) {
+    arr.forEach((el)=> el.pause())
 }
