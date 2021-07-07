@@ -10,9 +10,13 @@ const keyElements = getAllElement(namesOfKey);
 const audioElements = getAllElement(namesOfAudio);
 
 const pairKeyAudio = createPairs(keyElements,audioElements);
-pairKeyAudio.forEach( ([key,audio]) => key.addEventListener('click',() => audio.play()))
+pairKeyAudio.forEach( ([key,audio]) =>{ key.addEventListener('click',() => { 
+    audio.play();
+    removeClass(keyElements,'active');
+    addClass(key,'active');
+})});
 
-document.addEventListener('keypress', checkPressedKey(audioElements), false);
+document.addEventListener('keypress', checkPressedKey(audioElements,keyElements), false);
 
 /*---------------- utilities ---------------------*/
 
@@ -25,7 +29,7 @@ function typeOfElements(type){
 function getAllElement (elementsName){
     return elementsName.reduce( (allEllements, name) => {
         allEllements.push(document.querySelector(`#${name}`))
-        return allEllements
+        return allEllements;
     },[])
 }
 
@@ -37,11 +41,22 @@ function createPairs(keys,audios){
     return pairs;
 }
 
-function checkPressedKey(audioList){
+function checkPressedKey(audioList,keyList){
     return function addEvent(event){
         if (keyPrefix.includes(event.key)) {
-            let audioForKeyBeenPressed = audioList.filter((el)=> el.id[0] == event.key)
-            audioForKeyBeenPressed[0].play()
+            let audioForKeyBeenPressed = audioList.filter((el)=> el.id[0] == event.key);
+            audioForKeyBeenPressed[0].play();
+            /*------- add/remove class active ---------*/
+            let keyElementForKeyBeenPressed = keyList.filter((el)=> el.id[0] == event.key);
+            removeClass(keyList,'active');
+            addClass(keyElementForKeyBeenPressed[0],'active');
         }
     }
+}
+
+function removeClass(arr,className){
+    arr.forEach((el)=> el.classList.remove(className));
+}
+function addClass(elem,className){
+    elem.classList.add(className);
 }
