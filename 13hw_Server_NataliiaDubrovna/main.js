@@ -6,11 +6,11 @@ const icons = {
     agender: 'icons/bi.svg',
   };
   
-  const body = document.querySelector('body');
+  const filmBlock = document.querySelector('.filmBlock');
   
   function createTemplate(values) {
     const cardOfCharacter = document.createElement('div');
-    body.insertAdjacentElement('beforeend', cardOfCharacter);
+    filmBlock.insertAdjacentElement('beforeend', cardOfCharacter);
   
     const nameElem = document.createElement('span');
     nameElem.classList.add('name');
@@ -42,6 +42,7 @@ const icons = {
   };
   
   async function getCharacters(part) {
+    removeAllChildNodes(filmBlock)
     const url = ` https://swapi.dev/api/films/${part}`  
     const data = await getData(url);
   
@@ -71,18 +72,33 @@ buttonGetCharacters5.addEventListener('click', getCharacters.bind(null,5))
 const buttonGetCharacters6 = document.querySelector('#part6')
 buttonGetCharacters6.addEventListener('click', getCharacters.bind(null,6))
 
-
 /*-------------------- 2 ----------------*/
-async function getPlanet(){
-    const url =  "http://swapi.dev/api/planets";
+let currentPage = 1;
+let next = 1;
+let previous = null;
+const planetBlock = document.querySelector('.plannetsBlock');
 
+
+async function getPlanet(current){
+    removeAllChildNodes(planetBlock);
+
+    const url = `https://swapi.dev/api/planets/?page=${current}`;
     const data = await getData(url);
     data.results.forEach(async (planet) => {
         createPlanetTemplate(planet);
     })
-}
+    
+    if (data.next){   
+      let nextlink = data.next.split('').reverse();
+      next = +nextlink[0];
+    }else{next = data.next}
 
-const planetBlock = document.querySelector('.plannetsBlock');
+    if (data.previous){   
+      let previousLink = data.previous.split('').reverse();
+      previous = +previousLink[0];
+    }else{previous = data.previous}
+
+}
 
 function createPlanetTemplate(value){
     const planetElem = document.createElement('div');
@@ -92,7 +108,42 @@ function createPlanetTemplate(value){
 }
 
 const getPlanetsButton = document.querySelector('.getPlanets');
-getPlanetsButton.addEventListener('click', getPlanet);
+getPlanetsButton.addEventListener('click', getPlanet.bind(null, currentPage));
+
+/* ------------------- 3 ------------------*/
+
+const getNextPlanetsButton = document.querySelector('.getNext');
+getNextPlanetsButton.addEventListener('click', getNextPlanet);
+
+const getPreviousButtons = document.querySelector('.getPrevious');
+getPreviousButtons.addEventListener('click',getPreviousPlanet);
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+function getNextPlanet(){
+    removeAllChildNodes(planetBlock);
+    if(next){ getPlanet(next)}
+    else { 
+      previous = 6;
+      createPlanetTemplate({name: "There is no next page"})}
+}
+function getPreviousPlanet(){
+  removeAllChildNodes(planetBlock);
+  if(previous){ getPlanet(previous)}
+  else { 
+    next = 1;
+    createPlanetTemplate({name: "There is no previous page"})}  
+}
 
 
-/* ------------------- 3 --------------*/
+// /* ------------------- 5 (діч) ------------------*/
+// async function getPlanet(){
+//     const url =  "https://swapi.dev/api/planets/2/?format=wookiee";
+
+//     const data = await getData(url);
+//     console.log(data)
+// }
+// getPlanet();
