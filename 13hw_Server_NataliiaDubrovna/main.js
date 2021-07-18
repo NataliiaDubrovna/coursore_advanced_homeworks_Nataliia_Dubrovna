@@ -1,38 +1,72 @@
-
 /* ------------------ 1 -------------- */
 const icons = {
     male: 'icons/mail.svg',
     female: 'icons/femail.svg',
     agender: 'icons/bi.svg',
   };
+
+const filmBlock = document.querySelector('.filmBlock');
+const wookiElem = document.querySelector('.wooki');
+const englishElem = document.querySelector('.english');
+let wooki = '';
   
-  const filmBlock = document.querySelector('.filmBlock');
-  
-  function createTemplate(values) {
+wookiElem.addEventListener('click',() => { 
+  englishElem.classList.remove('active');
+  console.log(englishElem)
+  wooki = "?format=wookiee";
+  wookiElem.classList.add('active');
+});
+englishElem.addEventListener('click', ()=>{ 
+  wookiElem.classList.remove('active');
+  wooki = '';
+  englishElem.classList.add('active');
+});
+
+function createTemplate(values) {
     const cardOfCharacter = document.createElement('div');
     filmBlock.insertAdjacentElement('beforeend', cardOfCharacter);
   
-    const nameElem = document.createElement('span');
-    nameElem.classList.add('name');
-    nameElem.innerText = values.name;
-    cardOfCharacter.insertAdjacentElement('beforeend', nameElem);
-  
-    const birthElem = document.createElement('span');
-    birthElem.classList.add('birth');
-    birthElem.innerText = values.birth_year;
-    cardOfCharacter.insertAdjacentElement('beforeend', birthElem);
-  
-    const genderIcon =
+    if(wooki === ''){
+      const nameElem = document.createElement('span');
+      nameElem.classList.add('name');
+      nameElem.innerText = values.name;
+      cardOfCharacter.insertAdjacentElement('beforeend', nameElem);
+    
+      const birthElem = document.createElement('span');
+      birthElem.classList.add('birth');
+      birthElem.innerText = values.birth_year;
+      cardOfCharacter.insertAdjacentElement('beforeend', birthElem);
+      
+      const genderIcon =
       values.gender === 'male'
         ? (gender = `<img src="${icons.male}" alt="mail">`)
         : values.gender === 'female'
         ? (gender = `<img src="${icons.female}" alt="femail">`)
         : (gender = `<img src="${icons.agender}" alt="bi">`);
-  
-    const genderElem = document.createElement('span');
-    genderElem.classList.add('gender');
-    genderElem.innerHTML = genderIcon;
-    cardOfCharacter.insertAdjacentElement('beforeend', genderElem);
+      
+      const genderElem = document.createElement('span');
+      genderElem.classList.add('gender');
+      genderElem.innerHTML = genderIcon;
+      cardOfCharacter.insertAdjacentElement('beforeend', genderElem);
+    }
+
+    else if( wooki === '?format=wookiee'){
+      const nameElem = document.createElement('span');
+      nameElem.classList.add('name');
+      nameElem.innerText = values.whrascwo;
+      cardOfCharacter.insertAdjacentElement('beforeend', nameElem);
+    
+      const birthElem = document.createElement('span');
+      birthElem.classList.add('birth');
+      birthElem.innerText = values.rhahrcaoac_roworarc;
+      cardOfCharacter.insertAdjacentElement('beforeend', birthElem);
+
+      const genderElem = document.createElement('span');
+      genderElem.classList.add('gender');
+      genderElem.innerText = values.rrwowhwaworc;
+      cardOfCharacter.insertAdjacentElement('beforeend', genderElem);
+    }
+
   }
   
   const getData = async (url) => {
@@ -43,15 +77,15 @@ const icons = {
   
   async function getCharacters(part) {
     removeAllChildNodes(filmBlock)
-    const url = ` https://swapi.dev/api/films/${part}`  
+    const url = `https://swapi.dev/api/films/${part}`;  
     const data = await getData(url);
   
     data.characters.forEach(async (person) => {
-      const character = await getData(person);
+      const character = await getData(person + wooki);
       console.log(character)
       createTemplate(character);
     });
-  }
+}
 
 /* ----------------- 4 ----------------------*/
 const buttonGetCharacters1 = document.querySelector('#part1')
@@ -97,7 +131,6 @@ async function getPlanet(current){
       let previousLink = data.previous.split('').reverse();
       previous = +previousLink[0];
     }else{previous = data.previous}
-
 }
 
 function createPlanetTemplate(value){
@@ -138,12 +171,3 @@ function getPreviousPlanet(){
     createPlanetTemplate({name: "There is no previous page"})}  
 }
 
-
-// /* ------------------- 5 (діч) ------------------*/
-// async function getPlanet(){
-//     const url =  "https://swapi.dev/api/planets/2/?format=wookiee";
-
-//     const data = await getData(url);
-//     console.log(data)
-// }
-// getPlanet();
